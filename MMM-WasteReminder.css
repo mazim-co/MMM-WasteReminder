@@ -1,41 +1,62 @@
-/* Compact, single-line rows. First column flex; right columns narrow. */
-.MMM-WasteReminder { font-family: var(--font-primary, "Roboto Condensed"), sans-serif; }
-.MMM-WasteReminder .list { display: grid; grid-auto-rows: minmax(22px, auto); row-gap: 6px; }
-.MMM-WasteReminder .row { display: grid; grid-template-columns: 1fr auto auto; align-items: center; column-gap: 10px; white-space: nowrap; }
-.MMM-WasteReminder .type { overflow: hidden; text-overflow: ellipsis; }
-.MMM-WasteReminder .when { min-width: 72px; text-align: right; opacity: 0.9; }
-.MMM-WasteReminder .eta  { min-width: 46px; text-align: right; opacity: 0.7; }
+/* ===== Compact, single-line layout ===== */
+.MMM-WasteReminder {
+  font-family: var(--font-primary, "Roboto Condensed"), sans-serif;
+  color: #fff; /* default white text */
+}
 
-.MMM-WasteReminder .badge { display: inline-block; padding: 0 6px; border-radius: 10px; font-size: 0.8em; margin-left: 6px; }
-.MMM-WasteReminder .badge.due { background: #3a7; color: #000; }
-.MMM-WasteReminder .badge.today { background: #f6b73c; color: #000; }
-.MMM-WasteReminder .badge.tomorrow { background: #39f; color: #000; }
+.MMM-WasteReminder .list {
+  display: grid;
+  grid-auto-rows: minmax(22px, auto);
+  row-gap: 6px;
+}
 
-.MMM-WasteReminder .icon { width: 18px; height: 18px; display: inline-block; vertical-align: -3px; margin-right: 6px; filter: grayscale(100%); opacity: 0.9; }
+.MMM-WasteReminder .row {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  column-gap: 10px;
+  white-space: nowrap;
+}
 
-.MMM-WasteReminder .header { margin-bottom: 6px; }
-.MMM-WasteReminder .wrapper { padding-top: var(--gap-waste-top, 0px); padding-bottom: var(--gap-waste-bottom, 0px); }
-/* Default style for all icons */
+.MMM-WasteReminder .type {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Weekday + date + remaining days */
+.MMM-WasteReminder .when,
+.MMM-WasteReminder .eta {
+  min-width: 60px;
+  text-align: right;
+  opacity: 1;          /* full brightness */
+  color: #fff;         /* white text */
+}
+
+/* ===== Icons ===== */
 .MMM-WasteReminder .icon {
   width: 20px;
   height: 20px;
-  margin-right: 6px;
+  display: inline-block;
   vertical-align: -3px;
+  margin-right: 6px;
   filter: none;
   opacity: 1;
-  fill: currentColor;
 }
 
-/* Per-type color rules */
-.MMM-WasteReminder .row[data-type="Bio"] .icon {
-  color: #8B4513; /* brown */
+/* ===== Badges (remaining days) ===== */
+.MMM-WasteReminder .badge {
+  display: inline-block;
+  padding: 0 6px;
+  border-radius: 10px;
+  font-size: 0.8em;
+  margin-left: 6px;
+  background-color: rgba(255, 255, 255, 0.2); /* subtle transparent badge */
+  color: #fff;
 }
-.MMM-WasteReminder .row[data-type="Restmüll"] .icon {
-  color: #333333; /* black/grey */
-}
-.MMM-WasteReminder .row[data-type="Gelber Sack"] .icon {
-  color: #EAB308; /* yellow */
-}
-.MMM-WasteReminder .row[data-type="Papier"] .icon {
-  color: #2563EB; /* blue */
+
+/* ===== Header & spacing ===== */
+.MMM-WasteReminder .header { margin-bottom: 6px; }
+.MMM-WasteReminder .wrapper {
+  padding-top: var(--gap-waste-top, 0px);
+  padding-bottom: var(--gap-waste-bottom, 0px);
 }
