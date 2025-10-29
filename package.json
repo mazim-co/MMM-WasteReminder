@@ -1,0 +1,13 @@
+{
+  "name": "MMM-WasteReminder",
+  "version": "0.1.0",
+  "description": "MagicMirror module to remind about waste collection days (ICS or manual rules)",
+  "main": "MMM-WasteReminder.js",
+  "author": "mazim-co",
+  "license": "MIT",
+  "dependencies": {
+    "luxon": "^3.5.0",
+    "node-ical": "^0.15.2",
+    "rrule": "^2.8.1"
+  }
+}
